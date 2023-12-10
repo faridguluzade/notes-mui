@@ -23,6 +23,18 @@
       "details": "adsasda",
       "category": "todos",
       "id": 5
+    },
+    {
+      "title": "faird",
+      "details": "sadasdasd",
+      "category": "reminders",
+      "id": 6
+    },
+    {
+      "title": "Murad",
+      "details": "Quluzade",
+      "category": "money",
+      "id": 7
     }
   ]
 }

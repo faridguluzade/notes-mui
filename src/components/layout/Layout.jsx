@@ -1,5 +1,8 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import format from "date-fns/format";
 
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
@@ -7,6 +10,7 @@ import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import Avatar from "@mui/material/Avatar";
 import { AddCircleOutlineOutlined, SubjectOutlined } from "@mui/icons-material";
 
 import layoutStyles from "./Layout.styles";
@@ -30,11 +34,23 @@ function Layout() {
 
   return (
     <Box sx={layoutStyles.root}>
-      {/* side drawer */}
+      {/* app bar */}
+      <AppBar sx={layoutStyles.appbar} elevation={0}>
+        <Toolbar>
+          <Typography color="textSecondary" sx={layoutStyles.date}>
+            {format(new Date(), "do MMMM Y")}
+          </Typography>
+          <Typography color="textSecondary">Farid Guluzade</Typography>
+          <Avatar src="/avatar.png" sx={layoutStyles.avatar} />
+        </Toolbar>
+      </AppBar>
 
+      {/* side drawer */}
       <Drawer sx={layoutStyles.drawer} variant="permanent" anchor="left">
         <div>
-          <Typography variant="h5">Ninja Notes</Typography>
+          <Typography sx={layoutStyles.title} variant="h5">
+            Ninja Notes
+          </Typography>
         </div>
 
         {/* List / Links */}
@@ -54,6 +70,7 @@ function Layout() {
       </Drawer>
 
       <Box sx={layoutStyles.page}>
+        <Box sx={layoutStyles.toolbar}></Box>
         <Outlet />
       </Box>
     </Box>
